@@ -7,12 +7,10 @@ class FuncionarioRepository {
     required String cpf,
     required String senha,
   }) async {
-    
     final funcionario = LoginFuncionarioModel(
       cpf: cpf,
       senha: senha,
     );
-
     try {
       await FuncionarioApi().loginFuncionario(funcionario);
     } catch (e) {

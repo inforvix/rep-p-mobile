@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 SizedBox(height: 220),
                 EgTextFormWithLabel(
-                  label: 'Login',
+                  label: 'CPF',
                   hint: 'Informe seu CPF',
                   controller: cpfController,
                 ),
@@ -39,27 +39,8 @@ class _LoginPageState extends State<LoginPage> {
                   label: 'Senha',
                   hint: 'Informe sua senha',
                   controller: senhaController,
-                ),
-                SizedBox(height: 10),
-                SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 0.9,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        'Manter Conectado',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      Checkbox(
-                        value: false,
-                        onChanged: (value) {},
-                      ),
-                    ],
-                  ),
+                  obscureText: true,
+                  optionShowPassword: true,
                 ),
                 SizedBox(height: 50),
                 EgButtonCustom(
@@ -71,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                       senha: senhaController.text,
                     );
 
-                    if(DadosGlobais().token != '') {
+                    if(token != '') {
                       MarcacaoRepository().registrarMarcacao();
                     } 
 

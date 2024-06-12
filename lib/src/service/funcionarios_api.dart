@@ -15,8 +15,11 @@ class FuncionarioApi {
 
     if(response.statusCode >= 200 && response.statusCode <= 299) {
       final responseBody = json.decode(response.body);
-       DadosGlobais().token = responseBody['token'];
-       print(DadosGlobais().token);
+       //print(responseBody);
+       //print(responseBody['token']);
+
+       token = responseBody['token'];
+       print(token);
       return response;
     } else {
       throw Exception('Falha ao fazer login: ${response.statusCode}');

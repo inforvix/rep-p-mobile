@@ -6,7 +6,7 @@ class MarcacaoApi {
     final url = Uri.parse('${DadosGlobais.baseUrl}/marcacao/registraToken');
     final headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ${DadosGlobais().token}'
+      'Authorization': 'Bearer ${token}'
     };
 
     final response = await http.post(url, headers: headers);
