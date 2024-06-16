@@ -6,6 +6,9 @@ import 'package:rep_p_mobile/src/repositories/funcionarios_repository.dart';
 import 'package:rep_p_mobile/src/repositories/marcacao.dart';
 import 'package:rep_p_mobile/src/ui/cores.dart';
 
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -52,10 +55,23 @@ class _LoginPageState extends State<LoginPage> {
                       senha: senhaController.text,
                     );
 
-                    if(token != '') {
-                      MarcacaoRepository().registrarMarcacao();
-                    } 
-
+                    if (token != '') {
+                      await MarcacaoRepository().registrarMarcacao();
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        CustomSnackBar.success(
+                          message: "Marcação realizada com sucesso!",
+                        ),
+                      );
+                      token = '';
+                    } else {
+                      showTopSnackBar(
+                        Overlay.of(context),
+                        CustomSnackBar.error(
+                          message: "CPF ou senha invalido(s).",
+                        ),
+                      );
+                    }
                   },
                 ),
                 SizedBox(height: 30),

@@ -12,8 +12,6 @@ class MarcacaoApi {
     final response = await http.post(url, headers: headers);
 
     if(response.statusCode >= 200 && response.statusCode <= 299) {
-      print('Registror Marcacao');
-      print(response.toString() + 'Resgistrada ');
       return response;
     } else {
       throw Exception('Falha ao fazer login: ${response.statusCode}');
