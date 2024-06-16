@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       showTopSnackBar(
                         Overlay.of(context),
                         CustomSnackBar.success(
-                          message: "Marcação realizada com sucesso!",
+                          message: "Marcação realizada com sucesso",
                         ),
                       );
                       token = '';
